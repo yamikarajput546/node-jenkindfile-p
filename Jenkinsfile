@@ -5,9 +5,7 @@ pipeline {
             args '-p 3000:3000' 
         }
     }
-    environment {
-        dockerhub =  credentials('dockerhub')
-    }
+   
     stages {
 
     
@@ -17,32 +15,9 @@ pipeline {
             }
         }
 
-         stage('Package') { 
-            steps {
-                sh 'npm pack' 
-            }
-        }
+     
 
-        stage ('Building docker image'){
-            steps{
-                sh 'docker build -t node-jen-p:01 .'
-            }
-        }
-        
-        stage ('Pushing to the docker hub')
-        {
-            steps{
-                sh 'docker tag node-jen-p:01 yamikarajputd/node-jen-p:01'
-                sh 'echo $dockerhub_PSW | docker login -u $dockerhub_USR --password-stdin'
-                sh 'docker push yamikarajputd/node-jen-p:01'
-            }
-        }
-
-        stage('Docker Deploy') { 
-            steps {
-                sh 'docker run -itd -p 3001:3001 node-jen-p:01' 
-            }
-        }
+       
 
 
 
