@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-web-dep
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: nodejs-web-app
+  template:
+    metadata:
+      labels:
+        name: nodejs-web-app
+    spec:
+      containers:
+      - name: application
+        image: yamikarajputd/sc:01
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 3001

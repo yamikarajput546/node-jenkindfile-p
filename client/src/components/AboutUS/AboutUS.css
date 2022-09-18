@@ -1,0 +1,13 @@
+.about-div{
+    padding: 4rem;
+    text-align: justify;
+}
+
+h3{
+    color:#FB7240;
+}
+
+.about-text{
+    font-weight: bold;
+    font-style: italic;
+}

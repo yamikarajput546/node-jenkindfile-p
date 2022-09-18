@@ -1,0 +1,9 @@
+node_modules
+debug.log
+client/.gitignore
+client/.eslintcache
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
