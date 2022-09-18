@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: application
-        image: yamikarajputd/sc:01
+        image: node-jen-p:01
         imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 3001

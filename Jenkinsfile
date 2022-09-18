@@ -16,11 +16,6 @@ pipeline {
                 sh 'npm install' 
             }
         }
-        stage('Test') { 
-            steps {
-                sh './jenkins/scripts/test.sh' 
-            }
-        }
 
          stage('Package') { 
             steps {
@@ -42,6 +37,13 @@ pipeline {
                 sh 'docker push yamikarajputd/node-jen-p:01'
             }
         }
+
+        stage('Docker Deploy') { 
+            steps {
+                sh 'docker run -itd -p 3001:3001 node-jen-p:01' 
+            }
+        }
+
 
 
     }
